@@ -14,9 +14,9 @@ while true; do
     case $choice in
         1)
       
-            read -r-p "Enter car make: " make
-            read -r-p "Enter car model: " model
-            read -r-p "Enter car year: " year
+            read -r "Enter car make: " make
+            read -r "Enter car model: " model
+            read -r "Enter car year: " year
   
             echo "${make}:${model}:${year}" >> "$INVENTORY_FILE"
             echo "Car added successfully!"
