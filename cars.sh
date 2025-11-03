@@ -2,7 +2,7 @@
 
 
 while true; do
-    # Display menu
+
     echo "-----------------------------"
     echo "Car Inventory Menu:"
     echo "1) Add a car"
@@ -40,3 +40,4 @@ while true; do
             ;;
     esac
 done
+
