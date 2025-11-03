@@ -2,23 +2,23 @@
 
 
 while true; do
-    # Display menu
+  
     echo "-----------------------------"
     echo "Car Inventory Menu:"
     echo "1) Add a car"
     echo "2) List cars"
     echo "3) Quit"
     echo "-----------------------------"
-    read -p "Enter your choice (1-3): " choice
+    read -r "Enter your choice (1-3): " choice
 
     case $choice in
         1)
       
-            read -p "Enter car make: " make
-            read -p "Enter car model: " model
-            read -p "Enter car year: " year
+            read -r -p "Enter car make: " year
+            read -r -p "Enter car model: " make
+            read -r -p "Enter car year: " model
   
-            echo "${make}:${model}:${year}" >> "$INVENTORY_FILE"
+            echo "${year}:${make}:${model}" >> "$INVENTORY_FILE"
             echo "Car added successfully!"
             ;;
         2)
@@ -26,13 +26,13 @@ while true; do
             if [[ ! -s $INVENTORY_FILE ]]; then
                 echo "No cars in inventory."
             else
-                echo "Cars in inventory:"
-                cat "$INVENTORY_FILE" | nl -w2 -s". "
+                echo "Cars in inventory (Sorted by year):"
+                sort  -t: -k1nv "$INVENTORY_FILE" | nl -w2 -s". "
             fi
             ;;
         3)
           
-            echo "Exiting program. Goodbye!"
+            echo "Goodbye!"
             exit 0
             ;;
         *)
@@ -40,3 +40,4 @@ while true; do
             ;;
     esac
 done
+
